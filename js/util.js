@@ -1,9 +1,9 @@
 let gamePaused = false;
 
-export function togglePause() {
+function togglePause() {
     gamePaused = !gamePaused;
 }
 
-export function isGamePaused() {
+function isGamePaused() {
     return gamePaused;
 }

@@ -1,6 +1,4 @@
-import { togglePause } from './util.js';
-
-export let player = {
+let player = {
     x: canvas.width / 2 - 25,
     y: canvas.height - 100,
     width: 50,
@@ -16,7 +14,7 @@ export let player = {
 let bullets = [];
 let keys = {};
 
-export function handlePlayerMovement() {
+function handlePlayerMovement() {
     if (keys['ArrowLeft'] && player.x > 0) {
         player.x -= player.speed;
     }
@@ -31,19 +29,19 @@ export function handlePlayerMovement() {
     }
 }
 
-export function drawPlayer() {
+function drawPlayer() {
     ctx.fillStyle = 'blue';
     ctx.fillRect(player.x, player.y, player.width, player.height);
 }
 
-export function drawBullets() {
+function drawBullets() {
     ctx.fillStyle = 'red';
     bullets.forEach(bullet => {
         ctx.fillRect(bullet.x, bullet.y, bullet.width, bullet.height);
     });
 }
 
-export function handleBullets() {
+function handleBullets() {
     bullets.forEach((bullet, bulletIndex) => {
         bullet.y -= bullet.speed;
         if (bullet.y < 0) {
@@ -58,7 +56,7 @@ window.addEventListener('keydown', (event) => {
         bullets.push({ x: player.x + player.width / 2 - player.bulletSize / 2, y: player.y, width: player.bulletSize, height: player.bulletSize * 2, speed: player.bulletSpeed });
     } else if (event.key === 'p') {
         togglePause();
-    } // Supprimez la référence à toggleShop si elle n'est pas définie
+    } 
 });
 
 window.addEventListener('keyup', (event) => {

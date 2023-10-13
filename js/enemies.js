@@ -1,8 +1,6 @@
-
-
 let enemies = [];
 
-export function handleEnemies() {
+function handleEnemies() {
     enemies.forEach((enemy, enemyIndex) => {
         enemy.y += enemy.speed;
         if (enemy.y > canvas.height) {
@@ -25,7 +23,7 @@ export function handleEnemies() {
     });
 
     // Collision avec les balles
-    bullets.forEach((bullet, bulletIndex) => {
+    player.bullets.forEach((bullet, bulletIndex) => {  // Utilisation de player.bullets
         enemies.forEach((enemy, enemyIndex) => {
             if (
                 bullet.x < enemy.x + enemy.width &&
@@ -33,7 +31,7 @@ export function handleEnemies() {
                 bullet.y < enemy.y + enemy.height &&
                 bullet.y + bullet.height > enemy.y
             ) {
-                bullets.splice(bulletIndex, 1);
+                player.bullets.splice(bulletIndex, 1);  // Utilisation de player.bullets
                 enemies.splice(enemyIndex, 1);
                 player.score++;
                 player.money += 10;
@@ -42,7 +40,7 @@ export function handleEnemies() {
     });
 }
 
-export function drawEnemies() {
+function drawEnemies() {
     ctx.fillStyle = 'green';
     enemies.forEach(enemy => {
         ctx.fillRect(enemy.x, enemy.y, enemy.width, enemy.height);

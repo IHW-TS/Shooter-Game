@@ -1,8 +1,3 @@
-import { isGamePaused } from './util.js';
-import * as player from './player.js';
-import * as enm from './enemies.js';
-
-
 let shopOpen = false;
 
 function gameLoop() {
@@ -20,22 +15,17 @@ function gameLoop() {
 gameLoop();
 
 function update() {
-    player.handlePlayerMovement();
-    player.handleBullets();
-    enm.handleEnemies();
+    handlePlayerMovement();
+    handleBullets();
+    handleEnemies();
 }
 
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    player.drawPlayer();
-    player.drawBullets();
-    enm.drawEnemies();
-    drawAllies(ctx);
+    drawPlayer();
+    drawBullets();
+    drawEnemies();
     drawHUD();
-
-    if (shopOpen) {
-        drawShop();
-    }
 }
 
 function drawHUD() {
@@ -54,6 +44,3 @@ function drawGameOver() {
     ctx.font = '20px Arial';
     ctx.fillText('Score: ' + player.score, canvas.width / 2 - 40, canvas.height / 2 + 20);
 }
-
-
-
