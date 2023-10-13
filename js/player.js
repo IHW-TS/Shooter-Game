@@ -1,4 +1,4 @@
-import { togglePause, isGamePaused } from './util.js';
+import { togglePause } from './util.js';
 
 export let player = {
     x: canvas.width / 2 - 25,
@@ -51,15 +51,14 @@ export function handleBullets() {
         }
     });
 }
+
 window.addEventListener('keydown', (event) => {
     keys[event.key] = true;
     if (event.key === ' ') {
         bullets.push({ x: player.x + player.width / 2 - player.bulletSize / 2, y: player.y, width: player.bulletSize, height: player.bulletSize * 2, speed: player.bulletSpeed });
     } else if (event.key === 'p') {
         togglePause();
-    } else if (event.key === 'b') {
-        toggleShop();
-    }
+    } // Supprimez la référence à toggleShop si elle n'est pas définie
 });
 
 window.addEventListener('keyup', (event) => {
