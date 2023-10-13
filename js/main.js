@@ -19,11 +19,6 @@ function gameLoop() {
 
 gameLoop();
 
-function update() {
-    player.handlePlayerMovement();
-    player.handleBullets();
-    enm.handleEnemies();
-}
 
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);

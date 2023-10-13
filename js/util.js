@@ -1,4 +1,3 @@
-// util.js
 let gamePaused = false;
 
 export function togglePause() {
