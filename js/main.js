@@ -1,5 +1,4 @@
 import { isGamePaused } from './util.js';
-import { drawAllies } from './shop/ally.js';
 import * as player from './player.js';
 import * as enm from './enemies.js';
 
