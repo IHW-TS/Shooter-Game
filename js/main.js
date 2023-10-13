@@ -1,10 +1,13 @@
-import {drawAllies} from './shop/ally.js';
+import { isGamePaused } from './util.js';
+import { drawAllies } from './shop/ally.js';
+import * as player from './player.js';
+import * as enm from './enemies.js';
 
-let gamePaused = false;
+
 let shopOpen = false;
 
 function gameLoop() {
-    if (!gamePaused && player.lives > 0) {
+    if (!isGamePaused() && player.lives > 0) {
         update();
         draw();
     } else if (shopOpen) {
@@ -18,16 +21,16 @@ function gameLoop() {
 gameLoop();
 
 function update() {
-    handlePlayerMovement();
-    handleBullets();
-    handleEnemies();
+    player.handlePlayerMovement();
+    player.handleBullets();
+    enm.handleEnemies();
 }
 
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    drawPlayer();
-    drawBullets();
-    drawEnemies();
+    player.drawPlayer();
+    player.drawBullets();
+    enm.drawEnemies();
     drawAllies(ctx);
     drawHUD();
 
@@ -53,7 +56,5 @@ function drawGameOver() {
     ctx.fillText('Score: ' + player.score, canvas.width / 2 - 40, canvas.height / 2 + 20);
 }
 
-function togglePause() {
-    gamePaused = !gamePaused;
-}
+
 

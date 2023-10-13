@@ -1,6 +1,8 @@
+
+
 let enemies = [];
 
-function handleEnemies() {
+export function handleEnemies() {
     enemies.forEach((enemy, enemyIndex) => {
         enemy.y += enemy.speed;
         if (enemy.y > canvas.height) {
@@ -40,7 +42,7 @@ function handleEnemies() {
     });
 }
 
-function drawEnemies() {
+export function drawEnemies() {
     ctx.fillStyle = 'green';
     enemies.forEach(enemy => {
         ctx.fillRect(enemy.x, enemy.y, enemy.width, enemy.height);

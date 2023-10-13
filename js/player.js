@@ -1,4 +1,6 @@
-let player = {
+import { togglePause, isGamePaused } from './util.js';
+
+export let player = {
     x: canvas.width / 2 - 25,
     y: canvas.height - 100,
     width: 50,
@@ -14,7 +16,7 @@ let player = {
 let bullets = [];
 let keys = {};
 
-function handlePlayerMovement() {
+export function handlePlayerMovement() {
     if (keys['ArrowLeft'] && player.x > 0) {
         player.x -= player.speed;
     }
@@ -29,19 +31,19 @@ function handlePlayerMovement() {
     }
 }
 
-function drawPlayer() {
+export function drawPlayer() {
     ctx.fillStyle = 'blue';
     ctx.fillRect(player.x, player.y, player.width, player.height);
 }
 
-function drawBullets() {
+export function drawBullets() {
     ctx.fillStyle = 'red';
     bullets.forEach(bullet => {
         ctx.fillRect(bullet.x, bullet.y, bullet.width, bullet.height);
     });
 }
 
-function handleBullets() {
+export function handleBullets() {
     bullets.forEach((bullet, bulletIndex) => {
         bullet.y -= bullet.speed;
         if (bullet.y < 0) {
