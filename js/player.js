@@ -3,30 +3,35 @@ const keys = {
     ArrowDown: false,
     ArrowLeft: false,
     ArrowRight: false,
-    Space: false,
+    ' ': false,
     p: false,
-    b: false
+    b: false,
+    SpaceJustPressed: false
 };
 
 window.addEventListener('keydown', event => {
-    console.log(event.code);  
-    if (keys.hasOwnProperty(event.code)) {
-        keys[event.code] = true;
-        if (event.code === 'Space') {  
-            console.log('Space key pressed');
-            shoot();
+    console.log(event.key);  
+    if (keys.hasOwnProperty(event.key) && !keys[event.key]) {  
+        keys[event.key] = true;
+        if (event.key === ' ') {
+            keys.SpaceJustPressed = true;  
         }
-        if (event.code === 'KeyP') togglePause();  
-        if (event.code === 'KeyB') toggleShop();  
+        if (event.key === 'p' || event.key === 'P') { 
+            togglePause();
+        }
+        if (event.key === 'b' || event.key === 'B') {  
+            toggleShop();
+        }
     }
 });
-
-
 
 
 window.addEventListener('keyup', event => {
     if (keys.hasOwnProperty(event.key)) {
         keys[event.key] = false;
+        if (event.key === ' ') {
+            keys.SpaceJustPressed = false;  
+        }
     }
 });
 

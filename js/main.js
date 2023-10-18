@@ -10,9 +10,9 @@ function gameLoop() {
         player.draw();
         player.move();
 
-        if (keys.Space) {
+        if (keys.SpaceJustPressed) {
             shoot();
-            keys.Space = false;  
+            keys.SpaceJustPressed = false; 
         }
 
         updateProjectiles();
@@ -37,6 +37,7 @@ function gameLoop() {
 
     requestAnimationFrame(gameLoop);
 }
+
 
 function drawHUD() {
     ctx.fillStyle = 'black';

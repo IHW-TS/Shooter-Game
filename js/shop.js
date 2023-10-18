@@ -1,16 +1,6 @@
-// Dans shop.js
-function openShop() {
-    togglePause();
-    // Logique d'ouverture de la boutique
-}
+const shopButton = document.getElementById('shop-button');
+shopButton.addEventListener('click', openShop);
 
-// Dans player.js
-window.addEventListener('keydown', function(event) {
-    switch(event.key) {
-        // ...
-        case 'b':
-            openShop();
-            break;
-        // ...
-    }
-});
+function openShop() {
+    // Code pour ouvrir la page de la boutique
+}

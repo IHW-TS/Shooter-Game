@@ -1,5 +1,6 @@
 body {
     margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -9,4 +10,7 @@ body {
 
 canvas {
     border: 1px solid black;
+    margin: 50px;  /* Ajoutez une marge de 50px autour du canvas */
+    width: calc(100% - 100px);  /* Réduisez la largeur du canvas de 100px (50px de chaque côté) */
+    height: calc(100% - 100px);  /* Réduisez la hauteur du canvas de 100px (50px de chaque côté) */
 }
