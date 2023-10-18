@@ -9,30 +9,19 @@ const keys = {
 };
 
 window.addEventListener('keydown', event => {
-    console.log(event.key);  // Ajoutez cette ligne
-    if (keys.hasOwnProperty(event.key)) {
-        keys[event.key] = true;
-        if (event.key === 'p') togglePause();
-        if (event.key === 'b') toggleShop();
-        if (event.key === 'Space') {
-            console.log('Space key pressed');  // Ajoutez cette ligne
+    console.log(event.code);  
+    if (keys.hasOwnProperty(event.code)) {
+        keys[event.code] = true;
+        if (event.code === 'Space') {  
+            console.log('Space key pressed');
             shoot();
         }
+        if (event.code === 'KeyP') togglePause();  
+        if (event.code === 'KeyB') toggleShop();  
     }
 });
 
-function shoot() {
-    console.log('shoot function called');  // Ajoutez cette ligne
-    const projectile = {
-        x: player.x + player.width / 2 - 2.5,
-        y: player.y,
-        width: 5,
-        height: 10,
-        speed: 10,
-        color: 'green'
-    };
-    projectiles.push(projectile);
-}
+
 
 
 window.addEventListener('keyup', event => {
@@ -56,10 +45,6 @@ const player = {
         if (keys.ArrowDown && this.y < canvas.height - this.height) this.y += 10;
         if (keys.ArrowLeft && this.x > 0) this.x -= 10;
         if (keys.ArrowRight && this.x < canvas.width - this.width) this.x += 10;
-        if (keys.Space) shoot();
     }
 };
 
-function toggleShop() {
-    isPaused = !isPaused;
-}

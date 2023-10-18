@@ -9,7 +9,7 @@ function gameLoop() {
         
         player.draw();
         player.move();
-        
+
         if (keys.Space) {
             shoot();
             keys.Space = false;  
