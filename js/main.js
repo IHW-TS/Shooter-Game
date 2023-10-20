@@ -1,4 +1,4 @@
-let playerLives = 10;
+let playerLives = 5;
 let enemiesKilled = 0;
 let money = 0;
 let spawnEnemyInterval;
@@ -38,11 +38,10 @@ function gameLoop() {
     requestAnimationFrame(gameLoop);
 }
 
-
 function drawHUD() {
     ctx.fillStyle = 'black';
     ctx.font = '20px Arial';
-    ctx.fillText('Vies: ' + playerLives, 10, 20);
+    ctx.fillText('Vies: ' + playerLives, 5, 20);
     ctx.fillText('Ennemis éliminés: ' + enemiesKilled, 10, 40);
     ctx.fillText('Argent: $' + money, 10, 60);
 }
@@ -52,6 +51,9 @@ function displayGameOver() {
     ctx.fillStyle = 'black';
     ctx.font = '40px Arial';
     ctx.fillText('Game Over', canvas.width / 2 - 100, canvas.height / 2);
+
+   /* // Affichez le bouton de redémarrage
+    document.getElementById('restartButton').style.display = 'block';*/
 }
 
 function startGame() {
@@ -66,5 +68,30 @@ function togglePause() {
         spawnEnemyInterval = setInterval(spawnEnemy, 1000);  // Redémarrage de l'intervalle lorsque le jeu est repris
     }
 }
+/*
+
+// restart game //
+
+document.getElementById('restartButton').addEventListener('click', restartGame);
+
+function restartGame() {
+    // Réinitialisez toutes les variables et les états du jeu
+    playerLives = 5;
+    enemiesKilled = 0;
+    money = 0;
+    projectiles = [];
+    enemies = [];
+    isPaused = false;
+    isShopOpen = false;
+    
+    // Cachez le bouton de redémarrage
+    document.getElementById('restartButton').style.display = 'none';
+    
+    // Recommencez le jeu
+    startGame();
+    gameLoop();
+}
+*/
+
 startGame();
 gameLoop();
