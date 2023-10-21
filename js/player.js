@@ -6,7 +6,8 @@ const keys = {
     ' ': false,
     p: false,
     b: false,
-    SpaceJustPressed: false
+    SpaceJustPressed: false,
+    k: false
 };
 
 window.addEventListener('keydown', event => {
@@ -21,6 +22,9 @@ window.addEventListener('keydown', event => {
         }
         if (event.key === 'b' || event.key === 'B') {  
             toggleShop();
+        }
+        if (event.key === 'k' || event.key === 'K') {
+            killAllEnemies();
         }
     }
 });
@@ -53,3 +57,16 @@ const player = {
     }
 };
 
+function killAllEnemies() {
+    // Obtenez le nombre d'ennemis tués
+    const killedEnemiesCount = enemies.length;
+
+    // Augmentez le compteur d'ennemis tués
+    enemiesKilled += killedEnemiesCount;
+
+    // Augmentez votre argent, par exemple 10$ par ennemi tué
+    money += killedEnemiesCount * 10;
+
+    // Videz le tableau des ennemis
+    enemies.length = 0;
+}

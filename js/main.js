@@ -1,7 +1,7 @@
 let playerLives = 5;
-let enemiesKilled = 0;
 let money = 0;
 let spawnEnemyInterval;
+
 
 function gameLoop() {
     if (!isPaused) {
