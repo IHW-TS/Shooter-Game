@@ -61,7 +61,7 @@ function startGame() {
 }
 
 function togglePause() {
-    isPaused = !isPaused;
+    isPaused = !isPaused
     if (isPaused) {
         clearInterval(spawnEnemyInterval);  // Annulation de l'intervalle lorsque le jeu est mis en pause
     } else {
@@ -84,12 +84,12 @@ function restartGame() {
     isPaused = false;
     isShopOpen = false;
     
-    // Cachez le bouton de redémarrage
-    document.getElementById('restartButton').style.display = 'none';
+    // // Cachez le bouton de redémarrage
+    // document.getElementById('restartButton').style.display = 'none';
     
-    // Recommencez le jeu
-    startGame();
-    gameLoop();
+    // // Recommencez le jeu
+    // startGame();
+    // gameLoop();
 }
 */
 
