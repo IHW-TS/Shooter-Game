@@ -2,12 +2,12 @@
 
 ## Commande 
 
-- Espace : Tirer
+- Espace : Tirer (Annulation du maintient de la touche pour eviter les tires rapide)
 - Flèche Droite/Gauche/Haut/bas : Déplacer
 - P : Pause
 - b : Boutique "Shop" pour les améliorations (pour bientôt)
-- Bouton restart à faire (déjà coder, mise en place après la boutique)
-- Easter eggs : Trouver les dans le code
+- Bouton restart à faire (déjà coder, va être mise en place après la boutique)
+- Easter eggs : Chercher les ! 
 
 ## Jeu 
 
